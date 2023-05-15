@@ -74,6 +74,9 @@ def insertion_sort(array: list) -> list:
 
 if __name__ == '__main__':
     N = [100, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000]
+    delta_time_selection = []
+    delta_time_bubble = []
+    delta_time_insertion = []
 
     for i in N:
         arr = []
@@ -93,7 +96,6 @@ if __name__ == '__main__':
             selection_arr = selection_sort(arr.copy())
             end_time_selection = time.time()
 
-            delta_time_selection = []
             delta_time_selection.append((end_time_selection - start_time_selection) * 10 ** 3)
             with open(f'selection_sort_{i}.csv', mode='w') as w_file:
                 file_writer = csv.writer(w_file, delimiter="-", lineterminator="\r")
@@ -105,7 +107,6 @@ if __name__ == '__main__':
             bubble_arr = bubble_sort(arr.copy())
             end_time_bubble = time.time()
 
-            delta_time_bubble = []
             delta_time_bubble.append((end_time_bubble - start_time_bubble) * 10 ** 3)
             with open(f'buble_sort_{i}.csv', mode='w') as w_file:
                 file_writer = csv.writer(w_file, delimiter="-", lineterminator="\r")
@@ -117,7 +118,6 @@ if __name__ == '__main__':
             insertion_arr = insertion_sort(arr.copy())
             end_time_insertion = time.time()
 
-            delta_time_insertion = []
             delta_time_insertion.append((end_time_insertion - start_time_insertion) * 10 ** 3)
             with open(f'insertion_sort_{i}.csv', mode='w') as w_file:
                 file_writer = csv.writer(w_file, delimiter="-", lineterminator="\r")

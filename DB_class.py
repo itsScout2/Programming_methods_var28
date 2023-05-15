@@ -1,3 +1,4 @@
+# -*- coding: cp1251 -*-
 class DataBase:
     def __init__(self, person, inn, address, tax):
 
