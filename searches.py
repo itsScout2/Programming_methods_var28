@@ -12,13 +12,13 @@ pd.options.display.float_format = '{:.10f}'.format
 def linear_search(array: list, element: str) -> list:
 
     """
-    Реализация линейного поиска
+    ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г«ГЁГ­ГҐГ©Г­Г®ГЈГ® ГЇГ®ГЁГ±ГЄГ 
 
-    :param array: Массив для поиска
+    :param array: ГЊГ Г±Г±ГЁГў Г¤Г«Гї ГЇГ®ГЁГ±ГЄГ 
     :type array: list
-    :param element: эталонный элемент, который надо найти
+    :param element: ГЅГІГ Г«Г®Г­Г­Г»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ, ГЄГ®ГІГ®Г°Г»Г© Г­Г Г¤Г® Г­Г Г©ГІГЁ
     :type element: str
-    :return: список - индексы совпадающих элементов массива с element
+    :return: Г±ГЇГЁГ±Г®ГЄ - ГЁГ­Г¤ГҐГЄГ±Г» Г±Г®ГўГЇГ Г¤Г ГѕГ№ГЁГµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¬Г Г±Г±ГЁГўГ  Г± element
     :rtype: list
     """
 
@@ -32,17 +32,17 @@ def linear_search(array: list, element: str) -> list:
 def binary_search(array: list, element: str, start, end) -> list :
 
     """
-    Реализация бинарного поиска
+    ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї ГЎГЁГ­Г Г°Г­Г®ГЈГ® ГЇГ®ГЁГ±ГЄГ 
 
-    :param array: Массив для поиска
+    :param array: ГЊГ Г±Г±ГЁГў Г¤Г«Гї ГЇГ®ГЁГ±ГЄГ 
     :type array: list
-    :param element: эталонный элемент, который надо найти
+    :param element: ГЅГІГ Г«Г®Г­Г­Г»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ, ГЄГ®ГІГ®Г°Г»Г© Г­Г Г¤Г® Г­Г Г©ГІГЁ
     :type element: str
-    :param start: индекс элемента, с которого начинается поиск
+    :param start: ГЁГ­Г¤ГҐГЄГ± ГЅГ«ГҐГ¬ГҐГ­ГІГ , Г± ГЄГ®ГІГ®Г°Г®ГЈГ® Г­Г Г·ГЁГ­Г ГҐГІГ±Гї ГЇГ®ГЁГ±ГЄ
     :type start: int
-    :param end: индекс элемента, на котором закончить поиск
+    :param end: ГЁГ­Г¤ГҐГЄГ± ГЅГ«ГҐГ¬ГҐГ­ГІГ , Г­Г  ГЄГ®ГІГ®Г°Г®Г¬ Г§Г ГЄГ®Г­Г·ГЁГІГј ГЇГ®ГЁГ±ГЄ
     :type end: int
-    :return: список - индексы совпадающих элементов массива с element
+    :return: Г±ГЇГЁГ±Г®ГЄ - ГЁГ­Г¤ГҐГЄГ±Г» Г±Г®ГўГЇГ Г¤Г ГѕГ№ГЁГµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¬Г Г±Г±ГЁГўГ  Г± element
     :rtype: list
     """
 
@@ -80,12 +80,12 @@ def binary_search(array: list, element: str, start, end) -> list :
 def insertion_and_binary(array: list) -> list:
 
     """
-    Реализация сортировки простыми вставками и бинарный поиск
-                                    в отсортированном массиве
+    ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ ГЇГ°Г®Г±ГІГ»Г¬ГЁ ГўГ±ГІГ ГўГЄГ Г¬ГЁ ГЁ ГЎГЁГ­Г Г°Г­Г»Г© ГЇГ®ГЁГ±ГЄ
+                                    Гў Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­Г­Г®Г¬ Г¬Г Г±Г±ГЁГўГҐ
 
-    :param array: Массив для сортировки
+    :param array: ГЊГ Г±Г±ГЁГў Г¤Г«Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ
     :type array: list
-    :return: список - индексы совпадающих элементов массива с element
+    :return: Г±ГЇГЁГ±Г®ГЄ - ГЁГ­Г¤ГҐГЄГ±Г» Г±Г®ГўГЇГ Г¤Г ГѕГ№ГЁГµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¬Г Г±Г±ГЁГўГ  Г± element
     :rtype: list
     """
 
@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
             for row in file_reader:
                 tmp = []
-                if row[0] == 'ФИО':
+                if row[0] == 'Г”Г€ГЋ':
                     continue
                 tmp_row = str(row[0]).split('-')
                 tmp.append(DataBase(*tmp_row))
@@ -119,7 +119,7 @@ if __name__ == '__main__':
         delta_time_linear.append(timeit.Timer(lambda: linear_search(arr.copy(),
                                             arr[-7][0].person)).timeit(number=1))
         delta_time_binary.append(timeit.Timer(lambda: binary_search(arr.copy(),
-                            arr[-7][0].person, 0, len(arr) - 1)).timeit(number=1))
+                            arr[-1][0].person, 0, len(arr) - 1)).timeit(number=1))
 
         arr1 = []
         with open(f'DB_{i}.csv', mode='r') as r_file:
@@ -127,7 +127,7 @@ if __name__ == '__main__':
 
             for row in file_reader:
                 tmp = []
-                if row[0] == 'ФИО':
+                if row[0] == 'Г”Г€ГЋ':
                     continue
                 str_row = row[0] + '-' + row[1] + '-' + row[2] + '-' + row[3]
                 line = str_row.split('-')
@@ -140,12 +140,12 @@ if __name__ == '__main__':
             DB_dict[i[0].person].append(i[0])
         time_multimap.append(timeit.Timer(lambda: DB_dict[arr1[-1][0].person]).timeit(number=1))
 
-    d = {'Время поиска линейным поиском': delta_time_linear,
-        'Время поиска бинарным поиском': delta_time_binary,
-        'Время поиска бинарным поиском вместе с сортировкой': delta_time_ins_and_bin}
+    d = {'Г‚Г°ГҐГ¬Гї ГЇГ®ГЁГ±ГЄГ  Г«ГЁГ­ГҐГ©Г­Г»Г¬ ГЇГ®ГЁГ±ГЄГ®Г¬': delta_time_linear,
+        'Г‚Г°ГҐГ¬Гї ГЇГ®ГЁГ±ГЄГ  ГЎГЁГ­Г Г°Г­Г»Г¬ ГЇГ®ГЁГ±ГЄГ®Г¬': delta_time_binary,
+        'Г‚Г°ГҐГ¬Гї ГЇГ®ГЁГ±ГЄГ  ГЎГЁГ­Г Г°Г­Г»Г¬ ГЇГ®ГЁГ±ГЄГ®Г¬ ГўГ¬ГҐГ±ГІГҐ Г± Г±Г®Г°ГІГЁГ°Г®ГўГЄГ®Г©': delta_time_ins_and_bin}
 
     df = pd.DataFrame(data=d, index=N)
     print(df)
-    d_multimap = {'Время поиска по ключу': time_multimap}
+    d_multimap = {'Г‚Г°ГҐГ¬Гї ГЇГ®ГЁГ±ГЄГ  ГЇГ® ГЄГ«ГѕГ·Гі': time_multimap}
     df_multimap = pd.DataFrame(data=d_multimap, index=N)
     print(df_multimap)
