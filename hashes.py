@@ -6,6 +6,15 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 400)
 
 def JS_hash(key: str) -> int:
+
+    """
+    Релизация JS хэш-функции
+
+    :param key: объект, над которым производится хэширование
+    :type key: str
+    :return: int
+    """
+
     hash = 1315423911
     for i in range(len(key)):
         hash ^= ((hash << 5) + ord(key[i]) + (hash >> 2))
@@ -13,6 +22,15 @@ def JS_hash(key: str) -> int:
     return hash
 
 def LY_hash(key: str) -> int:
+
+    """
+    Релизация LY хэш-функции
+
+    :param key: объект, над которым производится хэширование
+    :type key: str
+    :return: int
+    """
+
     hash = 0
     for i in range(len(key)):
         hash = (hash * 1664525) + ord(key[i]) + 1013904223
@@ -124,6 +142,19 @@ class DataBase_hash:
         return self.hash
 
 def add_to_hash(hash_array: dict, element: DataBase_hash):
+
+    """
+    Функиця создания хэш-таблицы с использованием метода цепочек
+                                            для решения коллизий
+    :param hash_array: словарь, представляющий собой хэш-таблицу,
+                                            вида [hash, element]
+    :type hash_array: dict
+    :param element: элемент, который необходимо поместить
+                                            в хэш-таблицу
+    :type element: DataBase_hash
+    :return: none
+    """
+
     if hash_array.get(element.hash) is None:
         hash_array[element.hash] = element
     elif isinstance(hash_array[element.hash], list):
@@ -132,6 +163,18 @@ def add_to_hash(hash_array: dict, element: DataBase_hash):
         hash_array[element.hash] = [hash_array[element.hash], element]
 
 def get_from_hash(hash_array: dict, key: str, hash_f=JS_hash):
+
+    """
+    Функция поиска элемента в хэш-таблице
+    :param hash_array: хэш-таблица
+    :type hash_array: dict
+    :param key: ключ, по которому искать
+    :type key: str
+    :param hash_f: выбор хэш-функции
+    :type hash_f: function
+    :return:
+    """
+
     if isinstance(hash_array.get(hash_f(key)), list):
         for i in hash_array[hash_f(key)]:
             if i.person == key:
@@ -140,7 +183,15 @@ def get_from_hash(hash_array: dict, key: str, hash_f=JS_hash):
     else:
         return hash_array.get(hash_f(key), -1)
 
-def collisions(hash_array: dict):
+def collisions(hash_array: dict) -> int:
+
+    """
+    Функиция подсчет коллизий
+    :param hash_array: хэш-таблица, в которой идет подсчет коллизий
+    :type hash_array: dict
+    :return: int
+    """ё
+
     cnt = 0
     for i in hash_array.values():
         if isinstance(i, list):
@@ -174,17 +225,17 @@ if __name__ == '__main__':
 
         key = line[0]
 
-        #delta_time_JS_hash.append(timeit.Timer(lambda: get_from_hash(dict_JS, key)).timeit(number=1))
-        #delta_time_LY_hash.append(timeit.Timer(lambda: get_from_hash(dict_LY, key)).timeit(number=1))
+        delta_time_JS_hash.append(timeit.Timer(lambda: get_from_hash(dict_JS, key)).timeit(number=1))
+        delta_time_LY_hash.append(timeit.Timer(lambda: get_from_hash(dict_LY, key)).timeit(number=1))
 
         collisions_JS_hash.append(collisions(dict_JS))
         collisions_LY_hash.append(collisions(dict_LY))
 
-    #d_hashes = {'Время поиска для простой хэш-функции': delta_time_JS_hash,
-    #            'Время поиска для сложной хэш-функции': delta_time_LY_hash}
-    #df_hashes = pd.DataFrame(data=d_hashes, index=N)
-    #print(df_hashes)
-    #print('\n\n\n')
+    d_hashes = {'Время поиска для простой хэш-функции': delta_time_JS_hash,
+                'Время поиска для сложной хэш-функции': delta_time_LY_hash}
+    df_hashes = pd.DataFrame(data=d_hashes, index=N)
+    print(df_hashes)
+    print('\n\n\n')
 
     d_collisions = {'Кол-во коллизий простой хэш-функции': collisions_JS_hash,
                     'Кол-во коллизий сложной хэш-функции': collisions_LY_hash}
