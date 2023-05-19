@@ -119,7 +119,7 @@ if __name__ == '__main__':
         delta_time_linear.append(timeit.Timer(lambda: linear_search(arr.copy(),
                                             arr[-7][0].person)).timeit(number=1))
         delta_time_binary.append(timeit.Timer(lambda: binary_search(arr.copy(),
-                            arr[-7][0].person, 0, len(arr) - 1)).timeit(number=1))
+                            arr[-1][0].person, 0, len(arr) - 1)).timeit(number=1))
 
         arr1 = []
         with open(f'DB_{i}.csv', mode='r') as r_file:
@@ -134,11 +134,11 @@ if __name__ == '__main__':
                 tmp.append(DataBase(*line))
                 arr1.append(tmp)
 
-        #delta_time_ins_and_bin.append(timeit.Timer(lambda: insertion_and_binary(arr1.copy())).timeit(number=1))
+        delta_time_ins_and_bin.append(timeit.Timer(lambda: insertion_and_binary(arr1.copy())).timeit(number=1))
         DB_dict = defaultdict(list)
         for i in arr1:
             DB_dict[i[0].person].append(i[0])
-        time_multimap.append(timeit.Timer(lambda: DB_dict[arr1[-1][0].person]).timeit(number=1))
+        time_multimap.append(timeit.Timer(lambda: DB_dict[arr1[-1][0].person]).timeit(number=1) * 10**3)
 
     d = {'Время поиска линейным поиском': delta_time_linear,
         'Время поиска бинарным поиском': delta_time_binary,
@@ -146,6 +146,7 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(data=d, index=N)
     print(df)
+
     d_multimap = {'Время поиска по ключу': time_multimap}
     df_multimap = pd.DataFrame(data=d_multimap, index=N)
     print(df_multimap)
