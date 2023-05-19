@@ -190,7 +190,7 @@ def collisions(hash_array: dict) -> int:
     :param hash_array: хэш-таблица, в которой идет подсчет коллизий
     :type hash_array: dict
     :return: int
-    """ё
+    """
 
     cnt = 0
     for i in hash_array.values():
@@ -204,24 +204,22 @@ if __name__ == '__main__':
     delta_time_LY_hash = []
     collisions_JS_hash = []
     collisions_LY_hash = []
-    dict_JS = {}
-    dict_LY = {}
 
     for i in N:
+        dict_JS = {}
+        dict_LY = {}
         with open(f'DB_{i}.csv', mode='r') as r_file:
             file_reader = csv.reader(r_file, delimiter="-", lineterminator="\r")
 
             for row in file_reader:
-                tmp_JS = []
-                tmp_LY = []
                 if row[0] == 'ФИО':
                     continue
                 str_row = row[0] + '-' + row[1] + '-' + row[2] + '-' + row[3]
                 line = str_row.split('-')
-                tmp_JS.append(DataBase_hash(*line))
-                tmp_LY.append(DataBase_hash(*line, hash_f=LY_hash))
-                add_to_hash(dict_JS, tmp_JS[0])
-                add_to_hash(dict_LY, tmp_LY[0])
+                tmp_JS = (DataBase_hash(*line))
+                tmp_LY = (DataBase_hash(*line, hash_f=LY_hash))
+                add_to_hash(dict_JS, tmp_JS)
+                add_to_hash(dict_LY, tmp_LY)
 
         key = line[0]
 
